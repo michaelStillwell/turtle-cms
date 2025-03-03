@@ -1,0 +1,99 @@
+package pages
+
+import (
+	"fmt"
+	"github.com/michaelStillwell/turtle-cms/views/partials"
+)
+
+type Test struct {
+	name, t string
+}
+
+var test = []Test{
+	{name: "First Field", t: "int"},
+	{name: "ID", t: "Relation with Projects"},
+}
+
+templ CollectionBuilder(tenant string) {
+	<section>
+		<ul class={ "menu", "outline-1", "outline-primary", "w-56", "h-full" }>
+			<li>
+				@partials.Link(fmt.Sprintf("/%s/collection-editor", tenant), "text-primary") {
+					Collections
+				}
+			</li>
+			<li>
+				<ul>
+					<li><a>First Collection</a></li>
+				</ul>
+			</li>
+			<li>
+				<a>
+					<button
+						class={
+							"outline-dashed",
+							"size-6",
+							"outline-1",
+							"rounded-full",
+							"text-secondary",
+						}
+					>
+						+
+					</button>
+					New Collection 
+				</a>
+			</li>
+		</ul>
+	</section>
+	<section class={ "w-full", "p-6" }>
+		<div class={ "navbar" }>
+			<h1>Editing Daddy</h1>
+		</div>
+		@partials.Table(partials.TableParams{Fields: []string{"Name", "Type"}}) {
+			for _, value := range test {
+				@partials.TableRow() {
+					<td>
+						<div class={ "flex", }>
+							<span class={ "w-[3.2rem]", }>
+								<i class={ "w-6", }>
+									@partials.Icon(partials.IconHome)
+								</i>
+							</span>
+							<span>
+								{ value.name }
+							</span>
+						</div>
+					</td>
+					<td>
+						<span>
+							{ value.t }
+						</span>
+					</td>
+					<td>
+						<div class={ "flex", "justify-end", }>
+							<button class={ "btn", "btn-ghost", }>
+								@partials.Icon(partials.IconEdit)
+							</button>
+							<button class={ "btn", "btn-ghost", "btn-error", }>
+								@partials.Icon(partials.IconTrash)
+							</button>
+						</div>
+					</td>
+				}
+			}
+		}
+	</section>
+	// <section
+	// id="project-list"
+	// class="grow-1"
+	// hx-get="/api/projects"
+	// hx-trigger="load"
+	// ></section>
+}
+
+// @partials.Table(partials.TableParams{
+// Fields: []string{"Name", "Value", "help"},
+// Items: []partials.TableItem{
+// {Name: "Collection", Value: "First Collection"},
+// },
+// })

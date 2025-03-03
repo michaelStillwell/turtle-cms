@@ -1,0 +1,38 @@
+package partials
+
+import "fmt"
+
+templ Sidebar(tenant string) {
+	<ul class={ "menu", "bg-base-200", "h-full", "pt-6" }>
+		<li>
+			<a
+				href={ templ.SafeURL(fmt.Sprintf("/%s/collection-editor", tenant)) }
+				class={ "tooltip", "tooltip-right", "fit-content", "w-[3.2rem]" }
+				data-tip="Home"
+			>
+				@Icon(IconHome)
+			</a>
+		</li>
+		<li>
+			<a
+				href={ templ.SafeURL(fmt.Sprintf("/%s/collection-builder", tenant)) }
+				class={ "tooltip", "tooltip-right", "fit-content", "w-[3.2rem]" }
+				data-tip="Settings"
+			>
+				@Icon(IconBook)
+			</a>
+		</li>
+		<li>
+			<a
+				href={ templ.SafeURL(fmt.Sprintf("/%s/settings", tenant)) }
+				class={ "tooltip", "tooltip-right", "fit-content", "w-[3.2rem]" }
+				data-tip="Settings"
+			>
+				@Icon(IconSettings)
+				<span class={ "lg:hidden" }>
+					Settings
+				</span>
+			</a>
+		</li>
+	</ul>
+}

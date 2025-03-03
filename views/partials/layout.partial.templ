@@ -1,0 +1,16 @@
+package partials
+
+templ Layout(title, tenant string) {
+	@Base(title) {
+		<div class={ "drawer", "drawer-open", "z-30" }>
+			<input id="my-drawer" type="checkbox" class={ "drawer-toggle" }/>
+			<main class={ "drawer-content", "flex", }>
+				{ children... }
+			</main>
+			<aside class={ "drawer-side", "h-screen", "max-h-screen" }>
+				<label for="my-drawer" aria-label="close sidebar" class={ "drawer-overlay" }></label>
+				@Sidebar(tenant)
+			</aside>
+		</div>
+	}
+}

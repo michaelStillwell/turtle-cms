@@ -1,0 +1,13 @@
+package partials
+
+type ErrorTextParams struct {
+	ID,
+	Class,
+	Text string
+}
+
+templ ErrorText(params ErrorTextParams) {
+	<p id={ params.ID } class={ "text-center", "text-error", params.Class }>
+		{ params.Text }
+	</p>
+}

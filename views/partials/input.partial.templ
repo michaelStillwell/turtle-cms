@@ -1,0 +1,28 @@
+package partials
+
+type InputParams struct {
+	Name,
+	Title,
+	ContainerClass,
+	Type,
+	LabelClass string
+}
+
+func getType(t string) string {
+	if len(t) > 0 {
+		return t
+	}
+
+	return "text"
+}
+
+templ Input(params InputParams) {
+	<div class={ "form-control", "w-full", params.ContainerClass }>
+		<label class="label">
+			<span class={ "label-text", "text-base-content", params.LabelClass }>
+				{ params.Title }
+			</span>
+		</label>
+		<input type={ getType(params.Type) } class={ "input", "input-bordered w-full" } name={ params.Name }/>
+	</div>
+}

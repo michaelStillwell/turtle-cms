@@ -1,0 +1,37 @@
+[
+  {
+    "method": "POST",
+    "path": "/api/register",
+    "name": "github.com/michaelStillwell/turtle-cms/handlers.(*AuthHandler).handleRegister-fm"
+  },
+  {
+    "method": "GET",
+    "path": "/:tenant/collection-editor",
+    "name": "github.com/michaelStillwell/turtle-cms/handlers.(*CollectionEditorHandler).handleView-fm"
+  },
+  {
+    "method": "GET",
+    "path": "/:tenant/collection-builder",
+    "name": "github.com/michaelStillwell/turtle-cms/handlers.(*CollectionBuilderHandler).handleView-fm"
+  },
+  {
+    "method": "GET",
+    "path": "/:tenant/settings",
+    "name": "github.com/michaelStillwell/turtle-cms/handlers.(*SettingsHandler).handleView-fm"
+  },
+  {
+    "method": "GET",
+    "path": "/auth/login",
+    "name": "github.com/michaelStillwell/turtle-cms/handlers.(*AuthHandler).handleView-fm"
+  },
+  {
+    "method": "POST",
+    "path": "/auth/login",
+    "name": "github.com/michaelStillwell/turtle-cms/handlers.(*AuthHandler).handleLogin-fm"
+  },
+  {
+    "method": "GET",
+    "path": "/auth/logout",
+    "name": "github.com/michaelStillwell/turtle-cms/handlers.(*AuthHandler).handleLogout-fm"
+  }
+]

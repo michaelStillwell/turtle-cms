@@ -1,0 +1,33 @@
+layout {
+	tab name="running (api)" {
+		pane split_direction="vertical" {
+			pane name="api" size="75%" start_suspended=true {
+				command "fish"
+				args "-c" "make run"
+			}
+
+			pane {
+				pane name="db" start_suspended=true size="60%" {
+					command "sqlite3"
+					args "local.db"
+				}
+
+				pane stacked=true {
+					pane name="seed" size="60%" start_suspended=true {
+						command "make"
+						args "seed"
+					}
+
+					pane name="migrate" start_suspended=true {
+						command "make"
+						args "migrate"
+					}
+				}
+			}
+		}
+
+		pane size=1 borderless=true {
+			plugin location="compact-bar"
+		}
+	}
+}

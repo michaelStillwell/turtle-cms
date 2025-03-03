@@ -1,0 +1,33 @@
+package partials
+
+type (
+	TableItem struct {
+		Name  string
+		Value string
+	}
+	TableParams struct {
+		Fields []string
+		Items  []TableItem
+	}
+)
+
+templ Table(params TableParams) {
+	<table class={ "table" }>
+		<thead>
+			<tr>
+				for _, field := range params.Fields {
+					<th>{ field }</th>
+				}
+			</tr>
+		</thead>
+		<tbody>
+			{ children... }
+		</tbody>
+	</table>
+}
+
+templ TableRow(classes ...string) {
+	<tr class={ classes, }>
+		{ children... }
+	</tr>
+}
